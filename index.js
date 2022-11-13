@@ -8,8 +8,10 @@ async function run() {
   // await page.screenshot({ path: 'export/example.png', fullPage: true })
   // await page.pdf({ path: 'export/example.pdf', format: 'A4' })
 
-  const html = await page.content()
-  console.log(html)
+  // const html = await page.content()
+
+  const title = await page.evaluate(() => document.title)
+  console.log(title)
 
   await browser.close()
 }
