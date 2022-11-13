@@ -10,8 +10,10 @@ async function run() {
 
   // const html = await page.content()
 
-  const title = await page.evaluate(() => document.title)
-  console.log(title)
+  // const title = await page.evaluate(() => document.title)
+
+  const text = await page.evaluate(() => document.body.innerText)
+  console.log(text)
 
   await browser.close()
 }
