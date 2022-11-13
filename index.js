@@ -1,3 +1,4 @@
+const fs = require('fs')
 const puppeteer = require('puppeteer')
 
 async function run() {
@@ -35,6 +36,12 @@ async function run() {
       promo: e.querySelector('.card-footer .promo-code .promo').innerText
     }))
   )
+
+  // Save data to JSON file
+  fs.writeFile('export/courses.json', JSON.stringify(courses), err => {
+    if (err) throw err
+    console.log('Data written to file')
+  })
 
   console.log(courses)
 
